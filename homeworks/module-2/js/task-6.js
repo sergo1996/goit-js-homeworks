@@ -6,9 +6,9 @@ do {
   input = prompt('Введіть число!');
   if (Number.isNaN(Number(input))) {
     alert('Некоректні дані, введіть число!');
-  } else if (input >= 0) {
+  } else {
     numbers.push(Number(input));
-  }
+  };
 } while (input !== null);
 
 for (let number of numbers) {
