@@ -26,8 +26,9 @@ const products = [{
 const getAllPropValues = function (arr, prop) {
   const serchName = [];
   for (const name of arr) {
-    serchName.push(name[prop])
-
+    if (name[prop]) {
+      serchName.push(name[prop])
+    }
   }
   return serchName;
 };

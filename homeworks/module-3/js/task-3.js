@@ -3,13 +3,13 @@
 //  задач содержатся как свойства объекта в формате "имя":"кол-во задач".
 
 const findBestEmployee = function (employees) {
-  let nameProductive = '';
+  let maxValue = 0;
   let serchname;
-  const nameItem = Object.keys(employees);
-  for (const employ of nameItem) {
-    if (employees[employ] > nameProductive) {
-      nameProductive = employees[employ];
-      serchname = employ;
+  const namesArray = Object.keys(employees);
+  for (const name of namesArray) {
+    if (employees[name] > maxValue) {
+      maxValue = employees[name];
+      serchname = name;
     }
   }
   return serchname;

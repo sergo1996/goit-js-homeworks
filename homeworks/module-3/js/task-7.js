@@ -24,8 +24,13 @@ const account = {
     this.transactions.push(transaction);
   },
 
+
+
   withdraw(amount) {
-    if (amount > this.balance) return console.log('Недостаточно средств!');
+    if (amount > this.balance) {
+      console.log('Недостаточно средств!');
+      return;
+    }
     this.balance -= amount;
     const type = Transaction.WITHDRAW;
     const transaction = this.createTransaction(amount, type);
