@@ -3,12 +3,18 @@
 
   'use strict';
 
-  const userInput = document.querySelector('#name-input');
-  const output = document.querySelector('#name-output');
+  const input = document.querySelector('input#name-input');
+  const output = document.querySelector('span#name-output');
 
-  userInput.addEventListener('input', () => {
-    output.textContent = userInput.value;
-    if (userInput.value === '') {
-      return output.textContent = 'незнакомец';
+  input.addEventListener('input', changeOutput)
+
+
+  function changeOutput(event) {
+
+    if (event.currentTarget.value === '') {
+      output.textContent = 'Незнакомец'
+    } else {
+      output.textContent = event.currentTarget.value
     }
-  });
+
+  }

@@ -1,15 +1,17 @@
+'use strict';
+
 const validationInput = document.querySelector('#validation-input');
 const validTreshold = Number(validationInput.getAttribute('data-length'));
-
-validationInput.addEventListener('change', inputValidation);
+validationInput.addEventListener('input', inputValidation);
 
 function inputValidation() {
+  if (validationInput.value.length > validTreshold) {
 
-  if (validationInput.value.length === validTreshold) {
-    validationInput.classList.remove('invalid');
     validationInput.classList.add('valid');
-  } else if (validationInput.value === '') {
+    validationInput.classList.remove('invalid');
+
+  } else {
     validationInput.classList.add('invalid');
-    validationInput.classList.remove('valid', 'invalid');
+    validationInput.classList.remove('valid');
   }
 }

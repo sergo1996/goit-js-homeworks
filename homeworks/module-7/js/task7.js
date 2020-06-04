@@ -5,6 +5,7 @@ const text = document.querySelector('#text');
 
 sizeControl.addEventListener('input', handleSizeControl);
 
-function handleSizeControl() {
-  text.style.fontSize = `${sizeControl.valueAsNumber *2}px`;
+function handleSizeControl(event) {
+  const even = event.target
+  text.style.fontSize = `${even.value *2}px`;
 }
