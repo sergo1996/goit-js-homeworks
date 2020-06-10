@@ -2,10 +2,10 @@
 
 const validationInput = document.querySelector('#validation-input');
 const validTreshold = Number(validationInput.getAttribute('data-length'));
-validationInput.addEventListener('input', inputValidation);
+validationInput.addEventListener('blur', inputValidation);
 
 function inputValidation() {
-  if (validationInput.value.length > validTreshold) {
+  if (validationInput.value.length === validTreshold) {
 
     validationInput.classList.add('valid');
     validationInput.classList.remove('invalid');
@@ -15,3 +15,11 @@ function inputValidation() {
     validationInput.classList.remove('valid');
   }
 }
+
+validationInput.addEventListener('focus', () => {
+  if (validationInput.classList.contains('invalid')) {
+    validationInput.classList.remove('invalid');
+  } else {
+    validationInput.classList.remove('valid');
+  }
+})
