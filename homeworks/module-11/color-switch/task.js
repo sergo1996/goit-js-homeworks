@@ -12,7 +12,7 @@ const randomIntegerFromInterval = (min, max) => {
 };
 
 const refs = {
-  selectbody: document.querySelector(".js-body"),
+  selectbody: document.querySelector('.js-body'),
   startitem: document.querySelector('button[data-action="start"]'),
   stopitem: document.querySelector('button[data-action="stop"]'),
 };
@@ -23,17 +23,15 @@ refs.stopitem.addEventListener('click', handleStopCLick);
 let intervalClick;
 
 function handleStartCLick() {
-
   intervalClick = setInterval(() => {
-    let randomnumber = randomIntegerFromInterval(0, colors.length)
+    let randomnumber = randomIntegerFromInterval(0, colors.length);
     refs.selectbody.style.background = colors[randomnumber];
-    refs.startitem.setAttribute('disabled', true)
-  }, 1000)
-};
-
+    refs.startitem.setAttribute('disabled', true);
+  }, 1000);
+}
 
 function handleStopCLick() {
   clearInterval(intervalClick);
 
-  refs.stopitem.removeAttribute('disabled')
+  refs.startitem.removeAttribute('disabled');
 }
