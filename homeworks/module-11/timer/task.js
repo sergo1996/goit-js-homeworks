@@ -1,8 +1,5 @@
 class CountdownTimer {
-  constructor({
-    selector,
-    targetDate
-  }) {
+  constructor({ selector, targetDate }) {
     this.timerContainer = document.querySelector(selector);
     this.daysContainer = this.timerContainer.querySelector(
       '[data-value="days"]',
