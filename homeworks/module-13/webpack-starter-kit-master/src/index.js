@@ -1,7 +1,13 @@
 import './styles.css';
 import imgService from './js/apiService.js';
 import galleryItemTemplate from './templates/img_card_template.hbs';
-import { error, alert, success, defaults, Stack } from '@pnotify/core';
+import {
+  error,
+  alert,
+  success,
+  defaults,
+  Stack
+} from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
 
@@ -25,14 +31,18 @@ function searchFormHandler(e) {
   imgService
     .fetchImages()
     .then(images => buildListItems(images))
-    .catch(error => error('Something went wrong'));
+    .catch(data => error('Something went wrong'));
 }
 
 function loadMoreBtnHandler(e) {
   imgService
     .fetchImages()
-    .then(images => buildListItems(images))
-    .catch(error => error('Something went wrong'));
+    .then(images => {
+      buildListItems(images);
+      console.log(refs.loadMoreBtn.scrollHeight);
+      window.scrollBy(0, -40)
+    })
+    .catch(data => error('Something went wrong'));
 }
 
 function buildListItems(data) {
